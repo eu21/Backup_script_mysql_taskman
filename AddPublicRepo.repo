@@ -1,0 +1,22 @@
+if [ "$USERNAME" = "Yauheni_Kuzniatsou" ]; then
+  # do something here
+  #echo "Hello, Yauheni_Kuzniatsou!"
+  GITHUBACCOUNT="eu21"
+else
+  #echo "You are not Yauheni_Kuzniatsou"
+  GITHUBACCOUNT="annak225"
+fi
+
+
+NAME=${PWD##*/} 
+git init
+git add .
+git commit -m "Add existing project files to Git"
+git remote add origin https://github.com/$GITHUBACCOUNT/$NAME.git
+gh repo create $NAME --public --source=. --remote=origin
+git push -u -f origin main
+git push -u -f origin master
+
+
+start microsoft-edge:https://github.com/$GITHUBACCOUNT/$NAME
+

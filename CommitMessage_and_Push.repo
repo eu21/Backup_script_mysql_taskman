@@ -1,0 +1,30 @@
+if [ "$USERNAME" = "Yauheni_Kuzniatsou" ]; then
+  # do something here
+  #echo "Hello, Yauheni_Kuzniatsou!"
+  GITHUBACCOUNT="eu21"
+else
+  #echo "You are not Yauheni_Kuzniatsou"
+  GITHUBACCOUNT="annak225"
+fi
+
+
+NAME=${PWD##*/} 
+
+default="Add existing project files to Git"
+read -p "Enter commit message [$default]: " commitMessage
+commitMessage=${commitMessage:-$default}
+echo $commitMessage
+
+
+
+git add . --ignore-errors
+git commit -m "$commitMessage"
+git push -u -f origin main
+
+git push -u -f origin master
+
+#start microsoft-edge:https://github.com/$GITHUBACCOUNT/$NAME
+
+#pause in bash is using read command like this
+#read -t 5 -p "I am going to wait for 5 seconds only ..."
+
