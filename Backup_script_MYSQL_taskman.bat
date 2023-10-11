@@ -1,10 +1,17 @@
 @echo off
 
+REM Set the backup directory
+SET backupdir=c:\backup\mysql\
+mkdir %backupdir%
+
+REM Set the MySQL username and password
+SET mysqlusername=root
+SET mysqlpassword=root
+
 REM Get the current date and time
 REM set mydate=%date:~6,4%-%date:~3,2%-%date:~0,2%
 for /f "tokens=2-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%a-%%b)
 set mytime=%time%
-
 
 REM Check if the hour part of the time is one digit
 if "%mytime:~0,1%"==" " (
@@ -19,18 +26,8 @@ set mytime=%mytime: =_%"
 set mytime=%mytime::=-%
 set mytime=%mytime:"=%
 
-REM Set the backup directory
-SET backupdir=c:\backup\mysql\
-
-mkdir %backupdir%
-
-
 echo mydate: %mydate% > %backupdir%time.txt
 echo mytime: %mytime% >> %backupdir%time.txt
-
-REM Set the MySQL username and password
-SET mysqlusername=root
-SET mysqlpassword=root
 
 
 REM Backup all databases
