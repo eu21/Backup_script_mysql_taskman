@@ -20,7 +20,7 @@ set mytime=%mytime::=-%
 set mytime=%mytime:"=%
 
 REM Set the backup directory
-SET backupdir=c:\backup\mysql
+SET backupdir=c:\backup\mysql\
 
 mkdir %backupdir%
 
